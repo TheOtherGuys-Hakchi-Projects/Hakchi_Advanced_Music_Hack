@@ -31,6 +31,9 @@ Put your .wav files inside these folders, only one .wav per folder! (file name i
 
 ThanosRD has acquired permission to use some music for the mod. We have bundled these next to the hmod release download. You can download the zip and export it to your USB hakchi folder. 
 
+Super Mario Land - Birabuto Kingdom Smooth Jazz Remix by Mesmonium
+YouTube chan: https://www.youtube.com/channel/UCwR732P4RvihaZENVI8WtPw
+
 ## Credits and Thanks
 - Swingflip (Developer)
 - Bslenul Project Testing and coding
