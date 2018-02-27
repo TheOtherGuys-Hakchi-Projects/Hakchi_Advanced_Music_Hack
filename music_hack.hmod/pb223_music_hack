@@ -1,0 +1,40 @@
+if [ $cfg_music_hack_enabled == "y" ]; then
+
+	Music_Folder_Count=$(find $mountpoint/media/menu_music/* -maxdepth 0 -type d | wc -l)
+
+	Random_Number=$((1 + RANDOM % Music_Folder_Count))
+	
+	WAV_Count=$(find $mountpoint/media/menu_music/$Random_Number/*.wav -maxdepth 0 -type d | wc -l)
+	
+	if [ "$WAV_Count" -eq "0" ]; then
+		WAV_Count=$(find $mountpoint/media/menu_music/$Random_Number/*.WAV -maxdepth 0 -type d | wc -l)
+	fi
+	
+	if [ "$WAV_Count" -ne "0" ]; then
+		if [ "$WAV_Count" -eq "1" ]; then
+			Wav_To_Convert=$(ls -d $(ls | head -1))
+			mv $Wav_To_Convert $Wav_To_Convert.TEMP
+			mv $Wav_To_Convert bgm_boot.wav
+			mv $Wav_To_Convert bgm_home.wav
+			rm -f *.TEMP
+		fi
+	fi
+	
+	if [ -f "$mountpoint/media/menu_music/$Random_Number/bgm_boot.wav" ] && [ -f "$mountpoint/media/menu_music/$Random_Number/bgm_home.wav" ]; then
+		# NES Mini
+		[ -f "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_boot.wav"
+		[ -f "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_home.wav"
+
+		# SNES Mini (USA)
+		[ -f "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_boot.wav"
+		[ -f "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_home.wav"
+
+		# SNES Mini (EUR)
+		[ -f "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_boot.wav"
+		[ -f "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_home.wav"
+
+		# Super Famicom Mini (JAP)
+		[ -f "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_boot.wav"
+		[ -f "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_home.wav"
+	fi
+fi
