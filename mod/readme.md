@@ -1,12 +1,12 @@
---------------------------------
+---------------------------------------------------
 Name: Hakchi Advanced Music Hack
-Creator: Swingflip, Bslenul, ThanosRD
+Creator: Swingflip, Bslenul, ThanosRD, DanTheMan827
 Category: UI
---------------------------------
+---------------------------------------------------
 
 This module will disable NES/SNES Mini's default menu music and randomly play as much custom music you want, located on your external USB/SD drive...
 
-> **Note:** This is intended for USB-HOST set ups only. The reason is because each decent sized and quality WAV file is approximately 10mb. however, if you want, you can use this mod with nand.
+> **Note:** This is intended for USB-HOST set ups only. The reason is because each decent sized and quality WAV file is approximately 10mb. however, you can use this mod with nand if you want.
 
 ## New Features
 
@@ -36,27 +36,17 @@ Go to ***"usb:\hakchi"*** and create a "menu_music" folder, put your wav files i
 
 ThanosRD has acquired permission to use some music for the mod. We have bundled these next to the hmod release download. You can download the zip and export it to your USB hakchi folder. 
 
-- Super Mario Land - Birabuto Kingdom Smooth Jazz Remix by Mesmonium
-
-  - YouTube link: https://youtu.be/0Mqw1X0EiUM
-
--  Super Mario Bros. 3 - Theme Jazz Styled by LuigiMations
-
-   - YouTube link: https://youtu.be/QO2YY29FbSo
-  
--  Super Mario World - Main Theme (Jazz Version) by Nimroxx
-
-   - YouTube link: https://youtu.be/-ZO8yzMoWdI
-  
--  Super Mario Bros theme song - Jazz version by (Original creator unknown)
-
-   - YouTube link: https://youtu.be/QSDvOln5yQA
+- [Super Mario Land - Birabuto Kingdom Smooth Jazz Remix by Mesmonium](https://youtu.be/0Mqw1X0EiUM)
+- [Super Mario Bros. 3 - Theme Jazz Styled by LuigiMations](https://youtu.be/QO2YY29FbSo)
+- [Super Mario World - Main Theme (Jazz Version) by Nimroxx](https://youtu.be/-ZO8yzMoWdI)
+- [Super Mario Bros theme song - Jazz version by (Original creator unknown)](https://youtu.be/QSDvOln5yQA)
 
 ## Credits and Thanks
 - Swingflip (Developer)
 - Bslenul Project Testing and coding
 - ThanosRD Testing and other stuff
 - Thanks to Cluster for original mod.
+- Thanks to DanTheMan827 for fixes and improvements
 
 ### Notes and Known Issues
 
