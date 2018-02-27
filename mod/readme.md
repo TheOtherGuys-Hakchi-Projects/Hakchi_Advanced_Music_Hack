@@ -43,10 +43,10 @@ ThanosRD has acquired permission to use some music for the mod. We have bundled 
 
 ## Credits and Thanks
 - Swingflip (Developer)
+- DanTheMan827 (Developer)
 - Bslenul Project Testing and coding
 - ThanosRD Testing and other stuff
 - Thanks to Cluster for original mod.
-- Thanks to DanTheMan827 for fixes and improvements
 
 ### Notes and Known Issues
 
