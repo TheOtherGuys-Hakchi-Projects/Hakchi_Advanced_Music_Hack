@@ -9,7 +9,7 @@ advanced_music_hack(){
   local music_path="$mountpoint/media/hakchi/menu_music"
   [ ! -d "$music_path" ] && music_path="$installpath/menu_music"
   
-  local wav_file="$music_path/$(ls -1 $music_path/*.wav | head -$((${RANDOM} % `ls -1 $music_path/*.wav | wc -l` + 1)) | tail -1)"
+  local wav_file="$music_path/$(ls -1 $music_path/*.wav $music_path/*.WAV | head -$((${RANDOM} % `ls -1 $music_path/*.wav $music_path/*.WAV | wc -l` + 1)) | tail -1)"
   
   if [ -f "$wav_file" ]; then
     echo "WAV files detected..."
