@@ -52,8 +52,9 @@ ThanosRD has acquired permission to use some music for the mod. We have bundled 
 ## Credits and Thanks
 - Swingflip (Developer)
 - Bslenul Project Testing and coding
-- ThanosRD Testing and other stuff
-- Thanks to Cluster for original mod.
+- ThanosRD Testing, compiling the music and other stuff
+- Thanks to shawnsub for pre-release testing
+- Thanks to Cluster for original mod
 
 ### Notes and Known Issues
 
