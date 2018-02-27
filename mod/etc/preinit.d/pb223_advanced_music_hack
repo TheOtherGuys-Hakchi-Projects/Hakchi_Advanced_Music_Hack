@@ -1,0 +1,59 @@
+  echo "starting advanced music hack..." >> /media/music_hack.log
+	
+  chmod -R 777 $mountpoint/media/hakchi/menu_music/ &> /media/music_hack.log
+  
+  Music_Folder_Count=$(find $mountpoint/media/hakchi/menu_music/* -maxdepth 0 -type d | wc -l)
+  
+  echo "Music_Folder_Count = $Music_Folder_Count" >> /media/music_hack.log
+  
+  if [ "$Music_Folder_Count" -eq "0" ]; then
+	Music_Folder_Count=1
+  fi
+
+  Random_Number=$((1 + RANDOM % Music_Folder_Count))
+  
+  echo "Random_Number = $Random_Number" >> /media/music_hack.log
+    
+  WAV_Count=$(find $mountpoint/media/hakchi/menu_music/$Random_Number/*.wav -maxdepth 0 -type f | wc -l)
+  
+  echo "WAV_Count = $WAV_Count" >> /media/music_hack.log
+  
+  if [ "$WAV_Count" -eq "0" ]; then
+    echo "WAV_Count is equal to 0" >> /media/music_hack.log
+    WAV_Count=$(find $mountpoint/media/hakchi/menu_music/$Random_Number/*.WAV -maxdepth 0 -type f | wc -l)
+  fi
+  
+  if [ "$WAV_Count" -ne "0" ]; then
+    echo "WAV_Count is not equal to 0" >> /media/music_hack.log
+    if [ "$WAV_Count" -eq "1" ]; then
+      echo "WAV_Count is equal to 1" >> /media/music_hack.log
+      Wav_To_Convert=$(ls -d $(ls -d $mountpoint/media/hakchi/menu_music/$Random_Number/* | head -1) | xargs -n 1 basename)
+      echo "Wav_To_Convert = $mountpoint/media/hakchi/menu_music/$Random_Number/$Wav_To_Convert" >> /media/music_hack.log
+      mv $mountpoint/media/hakchi/menu_music/$Random_Number/$Wav_To_Convert $mountpoint/media/hakchi/menu_music/$Random_Number/$Wav_To_Convert.TEMP
+	  echo $(ls -l $mountpoint/media/hakchi/menu_music/$Random_Number/) >> /media/music_hack.log
+      cp $mountpoint/media/hakchi/menu_music/$Random_Number/$Wav_To_Convert.TEMP $mountpoint/media/hakchi/menu_music/$Random_Number/bgm_boot.wav
+      cp $mountpoint/media/hakchi/menu_music/$Random_Number/$Wav_To_Convert.TEMP $mountpoint/media/hakchi/menu_music/$Random_Number/bgm_home.wav
+      rm -f $mountpoint/media/hakchi/menu_music/$Random_Number/*.TEMP
+	  echo $(ls -l $mountpoint/media/hakchi/menu_music/$Random_Number/) >> /media/music_hack.log
+    fi
+  fi
+  
+  if [ -f "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_boot.wav" ] && [ -f "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_home.wav" ]; then
+    echo "Boot and Home WAV files detected..." >> /media/music_hack.log
+    
+    # NES Mini
+    [ -f "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_boot.wav" && echo "mounted wav" >> /media/music_hack.log
+    [ -f "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/clover-ui/resources/sounds/hvc/bgm_home.wav" && echo "mounted wav" >> /media/music_hack.log
+
+    # SNES Mini (USA)
+    [ -f "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_boot.wav" && echo "mounted wav" >> /media/music_hack.log
+    [ -f "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_home.wav" && echo "mounted wav" >> /media/music_hack.log
+
+    # SNES Mini (EUR)
+    [ -f "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_boot.wav" && echo "mounted wav" >> /media/music_hack.log
+    [ -f "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_home.wav" && echo "mounted wav" >> /media/music_hack.log
+
+    # Super Famicom Mini (JAP)
+    [ -f "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_boot.wav" && echo "mounted wav" >> /media/music_hack.log
+    [ -f "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/hakchi/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_home.wav" && echo "mounted wav" >> /media/music_hack.log
+  fi

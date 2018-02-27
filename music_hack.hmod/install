@@ -1,3 +1,0 @@
-copy "$transferpath/pb223_music_hack" "$preinitpath"
-cfg_music_hack_enabled='y'
-return 1
