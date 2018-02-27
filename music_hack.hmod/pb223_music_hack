@@ -1,4 +1,4 @@
-if [ $cfg_music_hack_enabled == "y" ]; then
+#if [ $cfg_music_hack_enabled == "y" ]; then
 
 	echo "starting advanced music hack..." >> /media/music_hack.log
 	
@@ -51,4 +51,4 @@ if [ $cfg_music_hack_enabled == "y" ]; then
 		[ -f "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_boot.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_boot.wav" "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_boot.wav" && echo "mounted wav" >> /media/music_hack.log
 		[ -f "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_home.wav" ] && mount -o bind "$mountpoint/media/menu_music/$Random_Number/bgm_home.wav" "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_home.wav" && echo "mounted wav" >> /media/music_hack.log
 	fi
-fi
+#fi
