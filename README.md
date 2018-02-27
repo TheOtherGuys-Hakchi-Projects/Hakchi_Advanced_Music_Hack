@@ -57,7 +57,7 @@ ThanosRD has acquired permission to use some music for the mod. We have bundled 
 
 ### Notes and Known Issues
 
-- Make sure Demo mode is turned off, or you will overlap the music. I have put a fix in place in the background but left it disabled. Effectively, you need to use the bundled bgm_boot.wav (2 second silence wav file) and mount that over the standard bgm_boot.wav. Unfortunately when you do this, on initial boot, the original menu music will play for 2-3 seconds before playing the custom track. This sucks so I left it as it is now. Just don't use the demos. (It's pretty pointless anyway)
+Make sure Demo mode is turned off, or you will overlap the music. I have put a fix in place in the background but left it disabled. Effectively, you need to use the bundled bgm_boot.wav (2 second silence wav file) and mount that over the standard bgm_boot.wav. Unfortunately when you do this, on initial boot, the original menu music will play for 2-3 seconds before playing the custom track. This sucks so I left it as it is now. Just don't use the demos. (It's pretty pointless anyway)
 
 If you think you can fix it then by all means please do. Even if you ignore the delay in the initial boot, if mario hits a game/app with no demo it will pause the music as expected but then it will start the music track again. Pretty shit IMHO.
 
