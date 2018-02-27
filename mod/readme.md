@@ -1,12 +1,12 @@
 --------------------------------
-Name: Hakchi Advanced Music Hack (USB only)
+Name: Hakchi Advanced Music Hack
 Creator: Swingflip, Bslenul, ThanosRD
 Category: UI
 --------------------------------
 
 This module will disable NES/SNES Mini's default menu music and randomly play as much custom music you want, located on your external USB/SD drive...
 
-> **Note:** This is intended for USB-HOST set ups only. The reason is because each decent sized and quality WAV file is approximately 10mb. Each "track" is duplicated twice so if you have 5 songs each at 10mb you will be using up 50mb space. This isn't a good idea when running solely on NAND...
+> **Note:** This is intended for USB-HOST set ups only. The reason is because each decent sized and quality WAV file is approximately 10mb. however, if you want, you can use this mod with nand.
 
 ## New Features
 
@@ -18,17 +18,17 @@ This module will disable NES/SNES Mini's default menu music and randomly play as
 
 Install the hmod as you would normally do...
 
-Music files should be in **PCM** format, the name of the music can be whatever you want as long as the extension is .wav or .WAV.
+Music files should be in **PCM** format, the name of the music can be whatever you want as long as the extension is `.wav`.
 
-Go to ***"usb:\hakchi"*** and create a "menu_music" folder, inside this new folder create one folder for each music named "1", "2", "3", and so on... i.e.
+Go to ***"usb:\hakchi"*** and create a "menu_music" folder, put your wav files in this folder
 
 ```
-   /media/hakchi/menu_music/1/DKC2.wav
-   /media/hakchi/menu_music/2/Beastie_Boys.wav
-   /media/hakchi/menu_music/3/E1M1.wav
+/media/hakchi/menu_music/DKC2.wav
+/media/hakchi/menu_music/Beastie_Boys.wav
+/media/hakchi/menu_music/E1M1.wav
 ```
 
-Put your .wav files inside these folders, only one .wav per folder! (file name is not important)
+> **Note:** If you want to use this with nand instead of USB, just use FTP and substitue `/media/hakchi/menu_music` with `/var/lib/hakchi/menu_music`
 
 > **Note:** Make sure Demo is turned off in the Nintendo GUI. If you play a demo for an app/game that doesn't have a demo you will overlap the music. This is the only issue we have at the moment. Please refer to the *Notes and Known Issues* section below for more info.
 
