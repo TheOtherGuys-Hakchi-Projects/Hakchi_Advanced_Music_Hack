@@ -39,15 +39,15 @@ ThanosRD has acquired permission to use some music for the mod. We have bundled 
 
 -  Super Mario Bros. 3 - Theme Jazz Styled by LuigiMations
 
-  - YouTube link: https://youtu.be/QO2YY29FbSo
+   - YouTube link: https://youtu.be/QO2YY29FbSo
   
 -  Super Mario World - Main Theme (Jazz Version) by Nimroxx
 
-  - YouTube link: https://youtu.be/-ZO8yzMoWdI
+   - YouTube link: https://youtu.be/-ZO8yzMoWdI
   
 -  Super Mario Bros theme song - Jazz version by (Original creator unknown)
 
-  - YouTube link: https://youtu.be/QSDvOln5yQA
+   - YouTube link: https://youtu.be/QSDvOln5yQA
 
 ## Credits and Thanks
 - Swingflip (Developer)
