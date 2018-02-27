@@ -22,19 +22,19 @@ advanced_music_hack(){
 
     # SNES Mini (USA)
     advanced_music_hack_bind \
-      "$music_path/$Random_Number/bgm_boot.wav" \
+      "$wav_file" \
       "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_boot.wav" \
       "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc/bgm_home.wav"
 
     # SNES Mini (EUR)
     advanced_music_hack_bind \
-      "$music_path/$Random_Number/bgm_boot.wav" \
+      "$wav_file" \
       "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_boot.wav" \
       "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc/bgm_home.wav"
 
     # Super Famicom Mini (JAP)
     advanced_music_hack_bind \
-      "$music_path/$Random_Number/bgm_boot.wav" \
+      "$wav_file" \
       "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_boot.wav" \
       "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc/bgm_home.wav"
   fi
