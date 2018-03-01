@@ -3,6 +3,7 @@ Name: Hakchi Advanced Music Hack
 Creator: Swingflip, Bslenul, ThanosRD, DanTheMan827
 Category: UI
 ---------------------------------------------------
+![](https://avatars0.githubusercontent.com/u/36450870?&s=128)
 
 This module will disable the NES/SNES Mini's default menu music and randomly play as much custom music you want, located on your external USB/SD drive...
 
