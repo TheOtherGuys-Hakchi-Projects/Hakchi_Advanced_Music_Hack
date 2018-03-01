@@ -1,6 +1,6 @@
-all: out/Hakchi_Advanced_Music_Hack.hmod
+all: out/Hakchi_Advanced_Music_Hack_v2_0.hmod
 
-out/Hakchi_Advanced_Music_Hack.hmod:
+out/Hakchi_Advanced_Music_Hack_v2_0.hmod:
 	mkdir -p out/
 	cd mod/; tar -czvf "../$@" *
 	touch "$@"
