@@ -1,7 +1,7 @@
 advanced_music_hack_bind(){
-  ([ -f "$1" ] && [ -f "$2/bgm_boot.wav" ] && [ -f "$2/bgm_home.wav" ]) || return 1
-  mount_bind "$3" "$2/bgm_boot.wav" && echo "overmounted $3 on $2/bgm_boot.wav" || return 1
-  mount_bind "$1" "$2/bgm_home.wav" && echo "overmounted $1 on $2/bgm_home.wav" || return 1
+  ([ -f "$1" ] && [ -f "$2" ] && [ -f "$3/bgm_boot.wav" ] && [ -f "$3/bgm_home.wav" ]) || return 1
+  mount_bind "$1" "$3/bgm_boot.wav" && echo "overmounted $1 on $3/bgm_boot.wav" || return 1
+  mount_bind "$2" "$3/bgm_home.wav" && echo "overmounted $2 on $3/bgm_home.wav" || return 1
   return 0
 }
 advanced_music_hack(){
@@ -11,6 +11,7 @@ advanced_music_hack(){
   
   echo "Advanced Audio Hack: $music_path"
   
+  local silent_wav="$rootfs/usr/share/advanced_music_hack/bgm_boot.wav"
   local wav_file="$(ls -1 $music_path/*.wav $music_path/*.WAV 2>/dev/null | head -$((${RANDOM} % `ls -1 $music_path/*.wav $music_path/*.WAV 2>/dev/null | wc -l` + 1)) | tail -1)"
   
   if [ -f "$wav_file" ]; then
@@ -19,28 +20,27 @@ advanced_music_hack(){
     # NES Mini
     advanced_music_hack_bind \
       "$wav_file" \
-      "$mountpoint/usr/share/clover-ui/resources/sounds/hvc" \
-	  "$wav_file"
+      "$wav_file" \
+      "$mountpoint/usr/share/clover-ui/resources/sounds/hvc"
 	  
 
     # SNES Mini (USA)
     advanced_music_hack_bind \
+      "$silent_wav" \
       "$wav_file" \
-      "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc" \
-	  "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav"
+      "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc"
 	  
 
     # SNES Mini (EUR)
     advanced_music_hack_bind \
+      "$silent_wav" \
       "$wav_file" \
-      "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc" \
-	  "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav"
+      "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc"
 
     # Super Famicom Mini (JAP)
     advanced_music_hack_bind \
+      "$silent_wav" \
       "$wav_file" \
-      "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc" \
-	  "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav"
+      "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc"
   fi
 }
-
