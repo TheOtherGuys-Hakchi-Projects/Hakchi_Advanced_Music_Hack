@@ -1,6 +1,6 @@
 advanced_music_hack_bind(){
   ([ -f "$1" ] && [ -f "$2/bgm_boot.wav" ] && [ -f "$2/bgm_home.wav" ]) || return 1
-  mount_bind "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav" "$2/bgm_boot.wav" && echo "overmounted $2/bgm_boot.wav" || return 1
+  mount_bind "$3" "$2/bgm_boot.wav" && echo "overmounted $3 on $2/bgm_boot.wav" || return 1
   mount_bind "$1" "$2/bgm_home.wav" && echo "overmounted $1 on $2/bgm_home.wav" || return 1
   return 0
 }
@@ -19,22 +19,28 @@ advanced_music_hack(){
     # NES Mini
     advanced_music_hack_bind \
       "$wav_file" \
-      "$mountpoint/usr/share/clover-ui/resources/sounds/hvc"
+      "$mountpoint/usr/share/clover-ui/resources/sounds/hvc" \
+	  "$wav_file"
+	  
 
     # SNES Mini (USA)
     advanced_music_hack_bind \
       "$wav_file" \
-      "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc"
+      "$mountpoint/usr/share/ui/snes-usa/resources/sounds/hvc" \
+	  "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav"
+	  
 
     # SNES Mini (EUR)
     advanced_music_hack_bind \
       "$wav_file" \
-      "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc"
+      "$mountpoint/usr/share/ui/snes-eur/resources/sounds/hvc" \
+	  "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav"
 
     # Super Famicom Mini (JAP)
     advanced_music_hack_bind \
       "$wav_file" \
-      "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc"
+      "$mountpoint/usr/share/ui/shvc/resources/sounds/hvc" \
+	  "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav"
   fi
 }
 
