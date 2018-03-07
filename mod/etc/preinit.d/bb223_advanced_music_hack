@@ -1,6 +1,7 @@
 advanced_music_hack_bind(){
   ([ -f "$1" ] && [ -f "$2/bgm_boot.wav" ] && [ -f "$2/bgm_home.wav" ]) || return 1
-  mount_bind "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav" "$2/bgm_boot.wav" && echo "overmounted $2/bgm_boot.wav" || return 1
+  [ ! -d "$mountpoint/usr/share/clover-ui/resources/sounds/hvc" ] && mount_bind "$rootfs/usr/share/advanced_music_hack/bgm_boot.wav" "$2/bgm_boot.wav" && echo "overmounted $2/bgm_boot.wav" || return 1
+  [ -d "$mountpoint/usr/share/clover-ui/resources/sounds/hvc" ] && mount_bind "$1" "$2/bgm_boot.wav" && echo "overmounted $1 on $2/bgm_boot.wav" || return 1
   mount_bind "$1" "$2/bgm_home.wav" && echo "overmounted $1 on $2/bgm_home.wav" || return 1
   return 0
 }
